@@ -1,5 +1,7 @@
 # resin-pican2-testbench
 
+A test application for the PiCAN2-duo HAT. The 2 CAN buses are connected to each other, so that we can perform automated tests on a single device.
+
 ### Installation
 
 You need to set the following parameters in your config.txt:
