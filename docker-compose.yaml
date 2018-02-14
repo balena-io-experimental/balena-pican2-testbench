@@ -4,5 +4,7 @@ services:
    build: ./tx
    depends_on:
     - rx
+   privileged: true
  rx:
   build: ./rx
+  privileged: true
