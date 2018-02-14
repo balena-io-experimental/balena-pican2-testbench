@@ -1,0 +1,8 @@
+version: '2'
+ services:
+   tx:
+     build: ./tx
+     depends_on:
+      - rx
+   rx:
+    build: ./rx
