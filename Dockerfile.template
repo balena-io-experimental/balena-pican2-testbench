@@ -1,12 +1,16 @@
-FROM arm32v7/python:latest
+FROM arm32v7/debian:stretch
 
 # install required packages
 RUN apt-get update && apt-get install -yq --no-install-recommends \
     build-essential \
+    wget \
+    unzip \
     libtool \
     pkg-config \
     autoconf \
     automake \
+    net-tools \
+    can-utils \
     make && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -15,11 +19,6 @@ WORKDIR usr/src/app
 
 # Move app to filesystem
 COPY ./app ./
-
-# Install python-can
-RUN wget https://bitbucket.org/hardbyte/python-can/get/4085cffd2519.zip && \
-  unzip 4085cffd2519.zip && python3 setup.py install && rm 4085cffd2519.zip && \
-  rm -rf 4085cffd2519
 
 # Start app
 CMD ["bash", "/usr/src/app/start.sh"]
