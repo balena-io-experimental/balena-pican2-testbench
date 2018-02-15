@@ -5,6 +5,12 @@ services:
    depends_on:
     - rx
    privileged: true
+   labels:
+      io.resin.features.kernel-modules: "true"
+      io.resin.features.firmware: "true"
  rx:
   build: ./rx
   privileged: true
+  labels:
+      io.resin.features.kernel-modules: "true"
+      io.resin.features.firmware: "true"
