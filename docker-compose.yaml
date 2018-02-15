@@ -1,0 +1,18 @@
+version: '2'
+services:
+ tx:
+   build: ./tx
+   depends_on:
+    - rx
+   privileged: true
+   network_mode: host
+   labels:
+      io.resin.features.kernel-modules: "true"
+      io.resin.features.firmware: "true"
+ rx:
+  build: ./rx
+  privileged: true
+  network_mode: host
+  labels:
+      io.resin.features.kernel-modules: "true"
+      io.resin.features.firmware: "true"
