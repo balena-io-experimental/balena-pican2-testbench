@@ -3,4 +3,6 @@
 
 python3 /usr/src/app/app.py
 
+echo "Starting listening to can1"
+
 candump can1
